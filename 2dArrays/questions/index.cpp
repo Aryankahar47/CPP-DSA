@@ -64,5 +64,5 @@ int main(){
     const char* matrix[2][3]={{"a11", "a12", "a13"},
                               {"a21", "a22", "a23"}};
     transpose(matrix, 2, 3);
-    return 0;                    
+    return 0;                 
 }
