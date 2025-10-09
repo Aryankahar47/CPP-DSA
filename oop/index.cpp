@@ -26,6 +26,11 @@ class Student{
       string getName(){
         return name;
       }
+      //costum constructor
+    Student(Student &original){
+        cout<<"copying..."<<endl;
+        this->name=original.name;
+    }
 };
 
 class profile{
@@ -49,6 +54,8 @@ int main(){
     Student s3("helllo");
     cout<<s3.getName()<<endl;
     Student s4;
+    Student s5(s2);
+    cout<<s5.getName()<<endl;
     
     return 0;
 }
