@@ -211,10 +211,79 @@ void returnIndices(int arr[], int key, int i, int n){
     }
     return returnIndices(arr, key, i+1, n);
 }
-int main(){
-    int arr[]= {3, 2, 4, 5, 6, 2, 7, 2, 2};
-    int key=2;
-    int n=sizeof(arr)/sizeof(int);
-    returnIndices(arr, key, 0, n);
+// int main(){
+//     int arr[]= {3, 2, 4, 5, 6, 2, 7, 2, 2};
+//     int key=2;
+//     int n=sizeof(arr)/sizeof(int);
+//     returnIndices(arr, key, 0, n);
+// }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//reverse an array
+void reverseArray(int i, vector<int> &arr, int n){
+    if(i>=n/2){
+        return;
+    }
+    swap(arr[i], arr[n-i-1]);
+    return reverseArray(i+1, arr, n);
 }
 
+// int main(){
+//     vector<int> arr={1, 2, 3, 4};
+//     int i = 0, n=arr.size();
+    
+//     reverseArray(i, arr, n);
+//     for(int k=0; k<arr.size(); k++){
+//         cout<<arr[k]<<" ";
+//     }
+//     return 0;
+// }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//is Palindrome
+bool isPalindrome(int i, string &arr, int j){
+    if(i>=j){
+        return true;
+    }
+    if(arr[i]!=arr[j]){
+        return false;
+    }else{
+        i++;
+        j--;
+    }
+    return isPalindrome(i, arr, j);
+}
+
+// int main(){
+//     string arr = "abbba";
+//     int i=0, j=arr.size()-1;
+
+//     cout<<isPalindrome(i, arr, j);
+//     return 0;
+// }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+//bubble sort
+void bubbleSort(vector<int>&arr, int n){
+    if(n==0){
+        return;
+    }
+    for(int i=0; i<n-1; i++){
+        if(arr[i]>arr[i+1]){
+            swap(arr[i], arr[i+1]);
+        }
+    }
+    bubbleSort(arr, n-1);
+}
+
+int main(){
+    vector<int> arr={4, 1, 3, 9, 7};
+    int n=arr.size();
+
+    bubbleSort(arr, n);
+    for(int i=0; i<n; i++){
+        cout<<arr[i]<<" ";
+    }
+    return 0;
+}
